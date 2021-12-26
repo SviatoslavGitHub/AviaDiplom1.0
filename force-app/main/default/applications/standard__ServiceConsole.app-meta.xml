@@ -179,7 +179,27 @@
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
+    <tabs>ExternalUser__c</tabs>
+    <tabs>FlightInformation__c</tabs>
+    <tabs>PaymentHistory__c</tabs>
+    <tabs>SecurityToken__c</tabs>
+    <tabs>Staff__c</tabs>
     <workspaceConfig>
+        <mappings>
+            <tab>ExternalUser__c</tab>
+        </mappings>
+        <mappings>
+            <tab>FlightInformation__c</tab>
+        </mappings>
+        <mappings>
+            <tab>PaymentHistory__c</tab>
+        </mappings>
+        <mappings>
+            <tab>SecurityToken__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Staff__c</tab>
+        </mappings>
         <mappings>
             <tab>standard-Account</tab>
         </mappings>

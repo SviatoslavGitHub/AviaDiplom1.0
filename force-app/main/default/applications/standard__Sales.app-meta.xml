@@ -18,4 +18,9 @@
     <tabs>standard-Product2</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
+    <tabs>ExternalUser__c</tabs>
+    <tabs>FlightInformation__c</tabs>
+    <tabs>PaymentHistory__c</tabs>
+    <tabs>SecurityToken__c</tabs>
+    <tabs>Staff__c</tabs>
 </CustomApplication>

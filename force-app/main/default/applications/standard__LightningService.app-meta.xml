@@ -13,9 +13,29 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>standard-home</tabs>
+    <tabs>ExternalUser__c</tabs>
+    <tabs>FlightInformation__c</tabs>
+    <tabs>PaymentHistory__c</tabs>
+    <tabs>SecurityToken__c</tabs>
+    <tabs>Staff__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
     <workspaceConfig>
+        <mappings>
+            <tab>ExternalUser__c</tab>
+        </mappings>
+        <mappings>
+            <tab>FlightInformation__c</tab>
+        </mappings>
+        <mappings>
+            <tab>PaymentHistory__c</tab>
+        </mappings>
+        <mappings>
+            <tab>SecurityToken__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Staff__c</tab>
+        </mappings>
         <mappings>
             <tab>standard-Account</tab>
         </mappings>

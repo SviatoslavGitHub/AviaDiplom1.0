@@ -9,4 +9,9 @@
     <tabs>standard-OtherUserProfile</tabs>
     <tabs>standard-CollaborationGroup</tabs>
     <tabs>standard-File</tabs>
+    <tabs>ExternalUser__c</tabs>
+    <tabs>FlightInformation__c</tabs>
+    <tabs>PaymentHistory__c</tabs>
+    <tabs>SecurityToken__c</tabs>
+    <tabs>Staff__c</tabs>
 </CustomApplication>

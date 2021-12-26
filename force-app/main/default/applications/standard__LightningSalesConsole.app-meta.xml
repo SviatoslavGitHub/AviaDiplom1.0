@@ -19,9 +19,29 @@
     <tabs>standard-Feed</tabs>
     <tabs>standard-CollaborationGroup</tabs>
     <tabs>standard-File</tabs>
+    <tabs>ExternalUser__c</tabs>
+    <tabs>FlightInformation__c</tabs>
+    <tabs>PaymentHistory__c</tabs>
+    <tabs>SecurityToken__c</tabs>
+    <tabs>Staff__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningSalesConsole_UtilityBar</utilityBar>
     <workspaceConfig>
+        <mappings>
+            <tab>ExternalUser__c</tab>
+        </mappings>
+        <mappings>
+            <tab>FlightInformation__c</tab>
+        </mappings>
+        <mappings>
+            <tab>PaymentHistory__c</tab>
+        </mappings>
+        <mappings>
+            <tab>SecurityToken__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Staff__c</tab>
+        </mappings>
         <mappings>
             <tab>standard-Account</tab>
         </mappings>
