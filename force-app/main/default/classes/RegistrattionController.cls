@@ -38,14 +38,18 @@ public class RegistrattionController {
                             if(String.isNotBlank(token.signature)){
                                 Cookie cookie = new Cookie('accessCookie',token.signature+' '+userInfo.Id,null,1440,true);
                                 ApexPages.currentPage().setCookies(new Cookie[]{cookie});  
-                                return null;//new PageReference('/apex/ExternalUserForm');
+                                return new PageReference('/apex/HomePage');
                             }
                         }
                     }
                 }else{ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'User with this Email alredy exist'));}
             }else{ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Passwords doesnt match'));}
         }else{ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'All fields are required'));}
-        return null;
+        return new PageReference('/apex/HomePage');
+    }
+    
+    public PageReference redirectToLogIn(){
+        return new PageReference('/apex/LoginPage');
     }
     
 }

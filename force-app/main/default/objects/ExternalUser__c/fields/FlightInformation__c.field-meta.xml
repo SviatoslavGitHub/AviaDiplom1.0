@@ -4,7 +4,7 @@
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
     <label>FlightInformation</label>
-    <referenceTo>FlightInformation__c</referenceTo>
+    <referenceTo>Flight_Information__c</referenceTo>
     <relationshipLabel>ExternalUsers</relationshipLabel>
     <relationshipName>ExternalUsers</relationshipName>
     <required>false</required>

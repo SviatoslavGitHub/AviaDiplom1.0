@@ -4,7 +4,7 @@ public class LoginController {
     public String password {get; set;}
     
     public PageReference redirectToSignUp(){
-        return new PageReference('/apex/RegistrattionForm');
+        return new PageReference('/apex/RegistrationeForm');
     }
     
     public PageReference doLogin(){  

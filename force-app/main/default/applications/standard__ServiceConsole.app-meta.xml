@@ -180,19 +180,31 @@
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
     <tabs>ExternalUser__c</tabs>
-    <tabs>FlightInformation__c</tabs>
+    <tabs>Flight_Information__c</tabs>
     <tabs>PaymentHistory__c</tabs>
     <tabs>SecurityToken__c</tabs>
     <tabs>Staff__c</tabs>
+    <tabs>City__c</tabs>
+    <tabs>Country__c</tabs>
+    <tabs>Route__c</tabs>
     <workspaceConfig>
+        <mappings>
+            <tab>City__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Country__c</tab>
+        </mappings>
         <mappings>
             <tab>ExternalUser__c</tab>
         </mappings>
         <mappings>
-            <tab>FlightInformation__c</tab>
+            <tab>Flight_Information__c</tab>
         </mappings>
         <mappings>
             <tab>PaymentHistory__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Route__c</tab>
         </mappings>
         <mappings>
             <tab>SecurityToken__c</tab>

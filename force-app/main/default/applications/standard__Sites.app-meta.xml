@@ -5,8 +5,11 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <tabs>standard-Chatter</tabs>
     <tabs>ExternalUser__c</tabs>
-    <tabs>FlightInformation__c</tabs>
+    <tabs>Flight_Information__c</tabs>
     <tabs>PaymentHistory__c</tabs>
     <tabs>SecurityToken__c</tabs>
     <tabs>Staff__c</tabs>
+    <tabs>City__c</tabs>
+    <tabs>Country__c</tabs>
+    <tabs>Route__c</tabs>
 </CustomApplication>

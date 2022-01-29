@@ -1,4 +1,4 @@
-<apex:page controller="RegistrattionController" showheader="false" docType="html-5.0" >
+<apex:page controller="RegistrattionController" showheader="false" docType="html-5.0" lightningStylesheets="true">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Untitled Document</title>
@@ -14,8 +14,8 @@
             }
             #container {
             position: fixed;
-            width: 340px;
-            height: 675px;
+            width: 320px;
+            height: 550px;
             top: 25%;
             left: 50%;
             margin-top: -140px;
@@ -60,7 +60,6 @@
             padding-left: 10px;
             margin: 10px;
             margin-top: 12px;
-            margin-left: 18px;
             width: 290px;
             height: 25px;
             border: 1px solid #c7d0d2;
@@ -75,7 +74,6 @@
             padding-left: 10px;
             margin: 10px;
             margin-top: 12px;
-            margin-left: 18px;
             width: 304px;
             height: 28px;
             border: 1px solid #c7d0d2;
@@ -91,7 +89,7 @@
             padding-left: 10px;
             margin: 10px;
             margin-top: 12px;
-            margin-left: 18px;
+            
             width: 290px;
             height: 25px;
             border: 1px solid #c7d0d2;
@@ -177,7 +175,8 @@
                 <apex:inputsecret value="{!userInfo.Password__c}" required="true"/>
                 <label for="CheckPassword">Repeat Password:</label>
                 <apex:inputsecret value="{!userPassword}" required="true"/>
-                <apex:commandbutton value="Registration" action="{!doRegistration}"/>
+                <apex:commandbutton value="Registration" action="{!doRegistration}" Style="position: absolute;top: 420px; left: 115px;"/>
+                <apex:commandbutton value="Sign-Up" action="{!redirectToLogIn}" Style="position: absolute;top: 460px; left: 115px;"/>
             </div>
         </body>
     </apex:form>
