@@ -4,14 +4,17 @@ public class HomePageController {
     public List<SelectOption> cityOptionList {get; set;}
     public List<SelectOption> destinationeOptionList {get;set;}
     public List<String> flightDates {get;set;}
+    public List<Flight_Information__c> flight {get;set;}
     public String selectedCountry {get;set;}
     public String selectedCity {get;set;}
     public String selectedRoute {get;set;}
+    public String selectedDate {get;set;}
     
     public Date dat{get;set;}
     
     public HomePageController(){
-        getCountry(); 
+        getCountry();
+        selectedDate = ''; 
     }
     
     public void getCountry(){
@@ -46,21 +49,49 @@ public class HomePageController {
                               FROM City__c
                               WHERE Id =: routes.CityTo__c 
 							  Limit 1];
-        	destinationeOptionList.add(new SelectOption(routes.Id,cityTo.Name));                            
+        	destinationeOptionList.add(new SelectOption(cityTo.Id,cityTo.Name));                            
         }       
     }
     
     public void getDates(){
         flightDates = new List<String>();
-        for(Flight_Information__c flyInfo : [SELECT Flight_Time_From__c
+        Route__c routes = [SELECT Id
+                           FROM Route__c
+                           WHERE CityFrom__c =: selectedCity AND CityTo__c =: selectedRoute Limit 1];
+        for(Flight_Information__c flyInfo : [SELECT DateFlightFrom__c
 											 FROM Flight_Information__c
-                                             WHERE Route__c =: selectedRoute]){                                
-            flightDates.add(flyInfo.Flight_Time_From__c.format('d-m-yyyy'));                                   
+                                             WHERE Route__c =: routes.id]){ 
+            System.debug(flyInfo.DateFlightFrom__c.day()+'-'
+            +string.valueof(flyInfo.DateFlightFrom__c.month()).replace('0','')+'-'+flyInfo.DateFlightFrom__c.year());                         
+            flightDates.add(flyInfo.DateFlightFrom__c.day()+'-'
+            +string.valueof(flyInfo.DateFlightFrom__c.month()).replace('0','')+'-'+flyInfo.DateFlightFrom__c.year());                                   
         }
     }
     
     public void search(){
+        System.debug('SelectedDate'+selectedDate);
+        List<String> dateSplit = selectedDate.split('-');
+        String prepateDate = '';
+        for(Integer i = 0; i < dateSplit.size(); i++){
+            if(dateSplit[i].length() == 1){
+                prepateDate += '0'+dateSplit[i];
+                prepateDate +='/';
+            }else{
+                prepateDate += dateSplit[i];
+            }
+            if(dateSplit[i].length() == 2){
+                prepateDate +='/';
+            }
+        }
+
+        System.debug('FinalDate'+prepateDate);
+        Date finalDate = date.parse(prepateDate);
+        System.debug('convertedValue'+finalDate);
         
+        flight = [SELECT CityFrom__c,CityTo__c,DateFlightFrom__c,Flight_Time_From__c,Flight_Time_To__c,Price__c,Name 
+                  FROM Flight_Information__c
+                  WHERE CityFrom__c =: selectedCity AND CityTo__c =: selectedRoute AND DateFlightFrom__c =: finalDate Limit 1]; //
+        System.debug('flight>>>>'+flight);
     }
     
     public PageReference redirectToLoginPage(){

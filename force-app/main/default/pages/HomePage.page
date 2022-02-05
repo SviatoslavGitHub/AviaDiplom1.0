@@ -1961,7 +1961,7 @@
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+    <!-- <script>
     function parallax_height() {
         var scroll_top = $(this).scrollTop();
         var sample_section_top = $(".sample-section").offset().top;
@@ -1976,28 +1976,43 @@
     $(window).resize(function() {
         parallax_height();
     });
-    </script>
-
+    </script> -->
 
 
     <script type="text/javascript">
-    function rerender(){
-        jQuery(function(){
-            var arrList = '{!flightDates}';
-            arrList = arrList.replace('[','').replace(']','');
-            var enableDays = arrList.split(',');
-            function enableAllTheseDays(date) {
-                var sdate = $.datepicker.formatDate( 'd-m-yy', date)
-                if($.inArray(sdate, enableDays) != -1) {
-                    return [true];
-                }
-                return [false];
+    jQuery(function(){
+        var arrList = '{!flightDates}';
+        arrList = arrList.replace(']', '').replace('[', '').replace(' ', '');
+        arrList = arrList.split(',');
+        var enableDays = [];
+        for (var i = 0; i < arrList.length; i++) {
+            var temp = arrList[i];
+            enableDays.push(temp);
+        }
+        console.log('DatesList'+enableDays);
+        function enableAllTheseDays(date) {
+            var sdate = $.datepicker.formatDate( 'd-m-yy', date)
+            if($.inArray(sdate, enableDays) != -1) {
+                return [true];
             }
-            $('#datepicker').datepicker({dateFormat: 'dd-mm-yy', beforeShowDay: enableAllTheseDays});
-        })}
+            return [false];
+        }
+        $(function() {
+            $("#datepicker").datepicker({ 
+                dateFormat: "d-m-yy",
+                beforeShowDay: enableAllTheseDays, 
+                onSelect: function(){
+                    var selected = $(this).val();
+                    jQuery('[id$=myHiddenField]').val(selected);
+                }
+            });
+        });   
+        
+    })
     </script>
     
     <apex:form >
+        <apex:inputHidden value="{!selectedDate}" id="myHiddenField"/>
         <div class="sample-header">
             <div class="sample-header-section">
                 <h1>Scroll down to see the parallax effect</h1>
@@ -2035,8 +2050,13 @@
                 </apex:selectList>
             </apex:actionRegion>
             <label for="Country">Date:</label>
-            <input type="text" id="datepicker"/>
-            <apex:commandButton action="{!search}" value="Search"/> 
+            <input type="text" value="{!selectedDate}" id="datepicker"/>
+            <apex:commandButton action="{!search}" value="Search" reRender="flyInfo"/> 
+            <apex:pageBlock id="flyInfo">
+                <apex:pageBlockTable value="{!flight}" var="a">
+                    <apex:column value="{!a.Name}"/>
+                </apex:pageBlockTable>
+        </apex:pageBlock>
         </div>
     </apex:form>
 </apex:page>
