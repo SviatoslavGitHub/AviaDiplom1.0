@@ -9,12 +9,14 @@ public class HomePageController {
     public String selectedCity {get;set;}
     public String selectedRoute {get;set;}
     public String selectedDate {get;set;}
+    public Boolean showTicketsPage {get;set;}
     
     public Date dat{get;set;}
     
     public HomePageController(){
         getCountry();
-        selectedDate = ''; 
+        selectedDate = '';
+        showTicketsPage = false;
     }
     
     public void getCountry(){
@@ -69,7 +71,6 @@ public class HomePageController {
     }
     
     public void search(){
-        System.debug('SelectedDate'+selectedDate);
         List<String> dateSplit = selectedDate.split('-');
         String prepateDate = '';
         for(Integer i = 0; i < dateSplit.size(); i++){
@@ -83,19 +84,14 @@ public class HomePageController {
                 prepateDate +='/';
             }
         }
-
-        System.debug('FinalDate'+prepateDate);
         Date finalDate = date.parse(prepateDate);
-        System.debug('convertedValue'+finalDate);
-        
         flight = [SELECT CityFrom__c,CityTo__c,DateFlightFrom__c,Flight_Time_From__c,Flight_Time_To__c,Price__c,Name 
                   FROM Flight_Information__c
                   WHERE CityFrom__c =: selectedCity AND CityTo__c =: selectedRoute AND DateFlightFrom__c =: finalDate Limit 1]; //
-        System.debug('flight>>>>'+flight);
     }
 
-    public PageReference buyTicket() {
-        return new PageReference('/apex/LoginPage');
+    public void buyTicket() {
+        showTicketsPage = true;
     }
     
     public PageReference redirectToLoginPage(){
