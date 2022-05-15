@@ -93,6 +93,10 @@ public class HomePageController {
                   WHERE CityFrom__c =: selectedCity AND CityTo__c =: selectedRoute AND DateFlightFrom__c =: finalDate Limit 1]; //
         System.debug('flight>>>>'+flight);
     }
+
+    public PageReference buyTicket() {
+        return new PageReference('/apex/LoginPage');
+    }
     
     public PageReference redirectToLoginPage(){
         return new PageReference('/apex/LoginPage');
