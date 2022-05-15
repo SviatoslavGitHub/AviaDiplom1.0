@@ -2188,103 +2188,106 @@
     </script>
 
 <apex:includeLightning />
+ 
     <apex:form>
-        <div class="splash-container" rendered="{!if(showTicketsPage == false, true, false)}" >
-            <div class="header">
-                <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-                    <a class="pure-menu-heading" href="https://www.youtube.com/"><img style="width:15%" src="https://itcluster.kiev.ua/images/projects/IT_Card/MAY_logo.png"/></a>
-                    <ul class="pure-menu-list" ><li class="pure-menu-item pure-menu-selected" ><a href="/apex/RegistrattionForm" class="pure-menu-link">Sign-Up</a></li></ul>
-                </div>    
-            </div>
-            <div class="splash">
-                <apex:inputHidden value="{!selectedDate}" id="myHiddenField"/>
-                    <h1>Scroll down to see the parallax effect</h1>
-                    <h2>Background landcape scrolls with its own depth </h2>
-                <div class="sample-section-wrap">
-                    <apex:messages />
-                    <label for="Country">Country:</label>
-                    <apex:actionRegion >
-                        <apex:selectList value="{!selectedCountry}" multiselect="false" size="1" styleClass="optionPicklist">
-                            <apex:selectOptions value="{!countryOptionList}" id="RegionSelectList"/>
-                            <apex:actionSupport event="onchange" reRender="cityOptions" action="{!getCity}"/>
-                        </apex:selectList>
-                    </apex:actionRegion>
-                    <label for="City">City:</label>
-                    <apex:actionRegion >
-                        <apex:selectList id="cityOptions" value="{!selectedCity}" multiselect="false" size="1" styleClass="optionPicklist">
-                            <apex:selectOptions value="{!cityOptionList}" id="CitySelectList" />
-                            <apex:actionSupport event="onchange" reRender="destinationOptions" action="{!getDestinations}"/>
-                        </apex:selectList>
-                    </apex:actionRegion>
-                    <label for="Destination">Destination:</label>
-                    <apex:actionRegion >
-                        <apex:selectList id="destinationOptions" value="{!selectedRoute}" multiselect="false" size="1" styleClass="optionPicklist">
-                            <apex:selectOptions value="{!destinationeOptionList}" id="destinationeList"/>
-                            <apex:actionSupport event="onchange" action="{!getDates}"/>
-                        </apex:selectList>
-                    </apex:actionRegion>
-                    <label for="Country">Date:</label>
-                    <input type="text" value="{!selectedDate}" id="datepicker"/>
-                    <apex:commandButton action="{!search}" value="Search" reRender="flyInfo"/> 
-                    <apex:pageBlock id="flyInfo">
-                        <apex:repeat value="{!flight}" var="a">
-                            <apex:commandLink action="{!buyTicket}" value="{!a.Name}" id="theCommandLink"/>
-                        </apex:repeat>
-                </apex:pageBlock>
+        <apex:pageBlock rendered="{!showTicketsPage}">
+            <div id="LightningComponentid" /> 
+        </apex:pageBlock>
+        <apex:pageBlock rendered="{!showHomePage}">
+            <div class="splash-container" >
+                <div class="header">
+                    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+                        <a class="pure-menu-heading" href="https://www.youtube.com/"><img style="width:15%" src="https://itcluster.kiev.ua/images/projects/IT_Card/MAY_logo.png"/></a>
+                        <ul class="pure-menu-list" ><li class="pure-menu-item pure-menu-selected" ><a href="/apex/RegistrattionForm" class="pure-menu-link">Sign-Up</a></li></ul>
+                    </div>    
                 </div>
-            </div>
-        </div>     
-        <div class="content-wrapper">
-            <div class="content">
-                <h2 class="content-head is-center">Work at you since 1912</h2>
-                <div class="pure-g">
-                    <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                        <h3 class="content-subhead">
-                            <i class="fa fa-rocket"></i>
-                            Natural Gas
-                        </h3>
-                        <p>
-                            Natural gas is a naturally occurring mixture of gases, mainly methane. It is formed when layers of decomposing plant and animal matter are exposed to intense heat and pressure under the surface of the Earth over millions of years.
-                        </p>
-                    </div>
-                    <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                        <h3 class="content-subhead">
-                            <i class="fa fa-mobile"></i>
-                            Clean Water
-                        </h3>
-                        <p>
-                            Safe and readily available water is important for public health, whether it is used for drinking, domestic use, food production or recreational purposes. Improved water supply and sanitation, and better management of water resources, can boost countries’ economic growth and can contribute greatly to poverty reduction.
-                            Safe and readily available water is important for public health, whether it is used for drinking, domestic use, food production or recreational purposes. Improved water supply and sanitation, and better management of water resources, can boost countries’ economic growth and can contribute greatly to poverty reduction.
-                        </p>
-                    </div>
-                    <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                        <h3 class="content-subhead">
-                            <i class="fa fa-th-large"></i>
-                            Stable electricity
-                        </h3>
-                        <p>
-                            Electrical energy arrives at homes through wires from the places where it is made. It is used by electric lamps, electric heaters, etc. Many appliances such as washing machines and electric cookers use electricity. In factories, electrical energy powers machines. People who deal with electricity and electrical devices in our homes and factories are called "electricians".
-                        </p>
+                <div class="splash">
+                    <apex:inputHidden value="{!selectedDate}" id="myHiddenField"/>
+                        <h1>Scroll down to see the parallax effect</h1>
+                        <h2>Background landcape scrolls with its own depth </h2>
+                    <div class="sample-section-wrap">
+                        <apex:messages />
+                        <label for="Country">Country:</label>
+                        <apex:actionRegion >
+                            <apex:selectList value="{!selectedCountry}" multiselect="false" size="1" styleClass="optionPicklist">
+                                <apex:selectOptions value="{!countryOptionList}" id="RegionSelectList"/>
+                                <apex:actionSupport event="onchange" reRender="cityOptions" action="{!getCity}"/>
+                            </apex:selectList>
+                        </apex:actionRegion>
+                        <label for="City">City:</label>
+                        <apex:actionRegion >
+                            <apex:selectList id="cityOptions" value="{!selectedCity}" multiselect="false" size="1" styleClass="optionPicklist">
+                                <apex:selectOptions value="{!cityOptionList}" id="CitySelectList" />
+                                <apex:actionSupport event="onchange" reRender="destinationOptions" action="{!getDestinations}"/>
+                            </apex:selectList>
+                        </apex:actionRegion>
+                        <label for="Destination">Destination:</label>
+                        <apex:actionRegion >
+                            <apex:selectList id="destinationOptions" value="{!selectedRoute}" multiselect="false" size="1" styleClass="optionPicklist">
+                                <apex:selectOptions value="{!destinationeOptionList}" id="destinationeList"/>
+                                <apex:actionSupport event="onchange" action="{!getDates}"/>
+                            </apex:selectList>
+                        </apex:actionRegion>
+                        <label for="Country">Date:</label>
+                        <input type="text" value="{!selectedDate}" id="datepicker"/>
+                        <apex:commandButton action="{!search}" value="Search" reRender="flyInfo"/> 
+                        <apex:pageBlock id="flyInfo">
+                            <apex:repeat value="{!flight}" var="a">
+                                <apex:commandLink action="{!buyTicket}" value="{!a.Name}" id="theCommandLink"/>
+                            </apex:repeat>
+                    </apex:pageBlock>
                     </div>
                 </div>
-            </div>
-            <div class="ribbon l-box-lrg pure-g">
-                <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            </div>     
+            <div class="content-wrapper">
+                <div class="content">
+                    <h2 class="content-head is-center">Work at you since 1912</h2>
+                    <div class="pure-g">
+                        <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                            <h3 class="content-subhead">
+                                <i class="fa fa-rocket"></i>
+                                Natural Gas
+                            </h3>
+                            <p>
+                                Natural gas is a naturally occurring mixture of gases, mainly methane. It is formed when layers of decomposing plant and animal matter are exposed to intense heat and pressure under the surface of the Earth over millions of years.
+                            </p>
+                        </div>
+                        <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                            <h3 class="content-subhead">
+                                <i class="fa fa-mobile"></i>
+                                Clean Water
+                            </h3>
+                            <p>
+                                Safe and readily available water is important for public health, whether it is used for drinking, domestic use, food production or recreational purposes. Improved water supply and sanitation, and better management of water resources, can boost countries’ economic growth and can contribute greatly to poverty reduction.
+                                Safe and readily available water is important for public health, whether it is used for drinking, domestic use, food production or recreational purposes. Improved water supply and sanitation, and better management of water resources, can boost countries’ economic growth and can contribute greatly to poverty reduction.
+                            </p>
+                        </div>
+                        <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                            <h3 class="content-subhead">
+                                <i class="fa fa-th-large"></i>
+                                Stable electricity
+                            </h3>
+                            <p>
+                                Electrical energy arrives at homes through wires from the places where it is made. It is used by electric lamps, electric heaters, etc. Many appliances such as washing machines and electric cookers use electricity. In factories, electrical energy powers machines. People who deal with electricity and electrical devices in our homes and factories are called "electricians".
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
-                    <h2 class="content-head content-head-ribbon">We think about the impact on nature.</h2>
-                    <p> Humans impact the physical environment in many ways: 
-                        overpopulation, pollution, burning fossil fuels, and 
-                        deforestation. Changes like these have triggered climate 
-                        change, soil erosion, poor air quality, and undrinkable water.
-                        These negative impacts can affect human behavior and can prompt 
-                        mass migrations or battles over clean water. 
-                    </p>
+                <div class="ribbon l-box-lrg pure-g">
+                    <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                    </div>
+                    <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+                        <h2 class="content-head content-head-ribbon">We think about the impact on nature.</h2>
+                        <p> Humans impact the physical environment in many ways: 
+                            overpopulation, pollution, burning fossil fuels, and 
+                            deforestation. Changes like these have triggered climate 
+                            change, soil erosion, poor air quality, and undrinkable water.
+                            These negative impacts can affect human behavior and can prompt 
+                            mass migrations or battles over clean water. 
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <div id="LightningComponentid" rendered="{!if(showTicketsPage == true, true, false)}" /> 
-        </div>
+        </apex:pageBlock>
     </apex:form>
 </apex:page>

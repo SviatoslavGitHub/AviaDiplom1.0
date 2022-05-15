@@ -10,6 +10,7 @@ public class HomePageController {
     public String selectedRoute {get;set;}
     public String selectedDate {get;set;}
     public Boolean showTicketsPage {get;set;}
+    public Boolean showHomePage {get;set;}
     
     public Date dat{get;set;}
     
@@ -17,6 +18,7 @@ public class HomePageController {
         getCountry();
         selectedDate = '';
         showTicketsPage = false;
+        showHomePage = true;
     }
     
     public void getCountry(){
@@ -92,6 +94,7 @@ public class HomePageController {
 
     public void buyTicket() {
         showTicketsPage = true;
+        showHomePage = false;
     }
     
     public PageReference redirectToLoginPage(){
